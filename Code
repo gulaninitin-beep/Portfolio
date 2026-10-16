@@ -1,0 +1,671 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nitin Gulani's student portfolio, skills, education, and animation projects.">
+    <title>Nitin Gulani | Portfolio</title>
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --surface: #ffffff;
+            --text: #202436;
+            --muted: #667085;
+            --accent: #6558f5;
+            --accent-soft: #eeecff;
+            --border: #e5e7ef;
+            --header: #17182b;
+            --shadow: 0 14px 35px rgba(25, 28, 55, .08);
+        }
+
+        body.dark {
+            --bg: #11131d;
+            --surface: #1b1e2b;
+            --text: #f1f2fa;
+            --muted: #b3b8ca;
+            --accent: #a69cff;
+            --accent-soft: #2c2949;
+            --border: #303446;
+            --header: #0b0c13;
+            --shadow: 0 14px 35px rgba(0, 0, 0, .22);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            transition: background .25s ease, color .25s ease;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header {
+            background: var(--header);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
+        }
+
+        .nav-wrap {
+            max-width: 1120px;
+            margin: auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.05rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: #a69cff;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: #e7e8f3;
+            text-decoration: none;
+            font-size: .93rem;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: #bcb5ff;
+        }
+
+        .theme-toggle {
+            border: 1px solid #55566b;
+            border-radius: 999px;
+            padding: 8px 12px;
+            color: white;
+            background: transparent;
+            cursor: pointer;
+            font: inherit;
+            font-size: .88rem;
+        }
+
+        .theme-toggle:hover {
+            background: #303149;
+        }
+
+        .hero {
+            background: radial-gradient(circle at 80% 20%, rgba(126, 112, 255, .32), transparent 30%),
+                linear-gradient(135deg, #17182b, #27204a 65%, #3b3473);
+            color: white;
+            padding: 88px 24px 82px;
+        }
+
+        .hero-inner {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: rgba(255, 255, 255, .12);
+            color: #dcd8ff;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 999px;
+            padding: 5px 12px;
+            font-size: .82rem;
+            letter-spacing: .04em;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 6vw, 4.4rem);
+            line-height: 1.12;
+            margin-bottom: 18px;
+            letter-spacing: -.04em;
+        }
+
+        .hero h1 span {
+            color: #bcb5ff;
+        }
+
+        .hero p {
+            max-width: 660px;
+            color: #e0e1f0;
+            font-size: 1.08rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 10px;
+            padding: 11px 17px;
+            font-weight: 700;
+            transition: transform .2s ease, opacity .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: #bcb5ff;
+            color: #17182b;
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(255, 255, 255, .4);
+            color: white;
+        }
+
+        main {
+            max-width: 1050px;
+            padding: 0 24px;
+            margin: auto;
+        }
+
+        section {
+            padding: 68px 0 8px;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading .kicker {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .13em;
+        }
+
+        h2 {
+            font-size: clamp(1.65rem, 4vw, 2.25rem);
+            letter-spacing: -.025em;
+            margin-top: 4px;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            max-width: 690px;
+            margin-top: 8px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 22px;
+        }
+
+        .panel,
+        .skill-card,
+        .project-card,
+        .education-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .panel {
+            padding: 26px;
+        }
+
+        .panel p+p {
+            margin-top: 13px;
+        }
+
+        .quick-facts {
+            display: grid;
+            gap: 14px;
+        }
+
+        .fact {
+            padding: 17px 18px;
+            background: var(--accent-soft);
+            border-radius: 13px;
+        }
+
+        .fact small {
+            display: block;
+            color: var(--muted);
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        .fact strong {
+            display: block;
+            margin-top: 3px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .skill-card {
+            padding: 22px;
+        }
+
+        .skill-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            display: grid;
+            place-items: center;
+            font-size: 1.25rem;
+            margin-bottom: 14px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 9px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--text);
+            font-size: .82rem;
+        }
+
+        .education-card {
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            align-items: start;
+        }
+
+        .education-card h3 {
+            font-size: 1.15rem;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .education-badge {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: .82rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-art {
+            min-height: 155px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #27204a, #6558f5);
+            color: white;
+            padding: 25px;
+        }
+
+        .project-art .art-symbol {
+            font-size: 2.5rem;
+            display: block;
+        }
+
+        .project-art p {
+            color: #e9e7ff;
+            font-size: .88rem;
+        }
+
+        .project-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .project-body h3 {
+            margin-bottom: 7px;
+        }
+
+        .project-body p {
+            color: var(--muted);
+        }
+
+        .project-body .button {
+            align-self: flex-start;
+            margin-top: 18px;
+            background: var(--accent-soft);
+            color: var(--text);
+        }
+
+        .project-note {
+            color: var(--muted);
+            font-size: .9rem;
+            margin-top: 16px;
+        }
+
+        .contact-panel {
+            background: var(--header);
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 24px 0 70px;
+        }
+
+        .contact-panel p {
+            color: #d9daea;
+            margin-top: 8px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            border: 1px solid #55566b;
+            border-radius: 10px;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-links a:hover {
+            background: #303149;
+        }
+
+        footer {
+            background: var(--header);
+            color: #e6e7f2;
+            padding: 24px;
+        }
+
+        .footer-inner {
+            max-width: 1050px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: .9rem;
+        }
+
+        footer a {
+            color: #c2bcff;
+        }
+
+        :focus-visible {
+            outline: 3px solid #a69cff;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 760px) {
+            .nav-wrap {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: flex-start;
+                gap: 12px 16px;
+            }
+
+            .hero {
+                padding: 65px 22px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-card {
+                grid-template-columns: 1fr;
+            }
+
+            .education-badge {
+                justify-self: start;
+            }
+
+            section {
+                padding-top: 52px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-wrap">
+            <a class="brand" href="#home">Nitin <span>Gulani.</span></a>
+            <nav aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">☾ Dark mode</button>
+            </nav>
+        </div>
+    </header>
+
+    <header class="hero" id="home">
+        <div class="hero-inner">
+            <span class="eyebrow">FIRST-YEAR B.TECH CSE STUDENT</span>
+            <h1>Hi, I'm Nitin<br><span>Gulani.</span></h1>
+            <p>I'm a student exploring computer science, web development, and creative digital projects—one step at a time.</p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="#projects">Explore my projects ↗</a>
+                <a class="button button-secondary" href="#contact">Get in touch</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="section-heading">
+                <span class="kicker">A little about me</span>
+                <h2>About / Bio</h2>
+                <p class="section-intro">A quick introduction to who I am, what I'm studying, and what I'm interested in learning.</p>
+            </div>
+            <div class="about-grid">
+                <article class="panel">
+                    <p>I'm Nitin Gulani, a first-year B.Tech student in Computer Science and Engineering, specializing in Artificial Intelligence, at NIAT × Geeta University.</p>
+                    <p>I'm at the beginning of my technology journey. I currently work with HTML and CSS and am learning Python. I also enjoy experimenting with animation, which gives me a creative way to make things digitally.</p>
+                    <p>My current goal is to strengthen my fundamentals, build something useful projects, and gradually grow my skills.</p>
+                </article>
+                <div class="quick-facts">
+                    <div class="fact"><small>Currently studying</small><strong>B.Tech — CSE (AI)</strong></div>
+                    <div class="fact"><small>Learning</small><strong>HTML · CSS · Python basics</strong></div>
+                    <div class="fact"><small>Interests</small><strong>Animation · Illustrations</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-heading">
+                <span class="kicker">What I'm learning</span>
+                <h2>Skills & Tools</h2>
+                <p class="section-intro">A truthful snapshot of my current learning stage. I'm continuing to practise and improve these fundamentals.</p>
+            </div>
+            <div class="skills-grid">
+                <article class="skill-card">
+                    <div class="skill-icon" aria-hidden="true">&lt;/&gt;</div>
+                    <h3>Web fundamentals</h3>
+                    <p class="muted">Building and styling simple web pages.</p>
+                    <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Responsive basics</span></div>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon" aria-hidden="true">⌘</div>
+                    <h3>Programming</h3>
+                    <p class="muted">Learning programming logic and practising beginner exercises.</p>
+                    <div class="tags"><span class="tag">Python basics</span><span class="tag">Conditionals</span><span class="tag">Loops</span></div>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon" aria-hidden="true">✦</div>
+                    <h3>Creative projects</h3>
+                    <p class="muted">Exploring visual ideas through small animation projects.</p>
+                    <div class="tags"><span class="tag">2D animation draft</span><span class="tag">3D animation</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-heading">
+                <span class="kicker">My learning journey</span>
+                <h2>Education</h2>
+            </div>
+            <article class="education-card">
+                <div>
+                    <h3>NIAT × Geeta University</h3>
+                    <p class="muted">Bachelor of Technology (B.Tech)</p>
+                    <p>Computer Science and Engineering — Artificial Intelligence specialization</p>
+                    <p class="muted" style="margin-top: 8px;">First year · Current student</p>
+                </div>
+                <span class="education-badge">Undergraduate</span>
+            </article>
+        </section>
+
+        <section id="projects">
+            <div class="section-heading">
+                <span class="kicker">Things I've made</span>
+                <h2>Projects</h2>
+                <p class="section-intro">A couple of animation experiments from my creative work.</p>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-art">
+                        <div><span class="art-symbol" aria-hidden="true">▶</span><strong>3D Animation</strong>
+                            <p>Motion experiment</p>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>2nd 3D Animation</h3>
+                        <p>A short 3D animation based on “Caramelldansen.”</p>
+                        <div class="tags"><span class="tag">3D animation</span><span class="tag">Creative practice</span></div>
+                        <a class="button" href="https://drive.google.com/file/d/11OSXWCr4D99RssHvNz-8poQt867kcMYH/view?usp=sharing" target="_blank" rel="noopener noreferrer">View animation ↗</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-art">
+                        <div><span class="art-symbol" aria-hidden="true">✎</span><strong>2D Animation</strong>
+                            <p>Early draft</p>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>1st 2D Animation Draft</h3>
+                        <p>An ultra-short 2D animation draft created as an early experiment.</p>
+                        <div class="tags"><span class="tag">2D animation</span><span class="tag">Draft</span></div>
+                        <a class="button" href="https://drive.google.com/file/d/16QtBxJ-MWJ5IMyFZ4l4wlifPAV29yJgT/view?usp=sharing" target="_blank" rel="noopener noreferrer">View animation ↗</a>
+                    </div>
+                </article>
+            </div>
+            <p class="project-note">These projects are animation work rather than software applications. More coding projects will be added soon.</p>
+        </section>
+
+        <section id="contact">
+            <div class="contact-panel">
+                <span class="kicker">Say hello</span>
+                <h2>Contact</h2>
+                <p>Have a question or want to connect? You can reach me by email.</p>
+                <div class="contact-links">
+                    <a href="mailto:gulaninitin@gmail.com">✉ gulaninitin@gmail.com</a>
+                    <a href="https://github.com/gulaninitin-beep" target="_blank" rel="noopener noreferrer">
+                        gulaninitin-beep on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p>© <span id="year">2026</span> Nitin Gulani. All rights reserved.</p>
+            <p>Built with HTML5, CSS3 & a little JavaScript.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+        themeToggle.addEventListener("click", function() {
+            const isDark = document.body.classList.toggle("dark");
+            themeToggle.textContent = isDark ? "☀ Light mode" : "☾ Dark mode";
+            themeToggle.setAttribute("aria-pressed", String(isDark));
+        });
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
